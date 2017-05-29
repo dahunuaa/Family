@@ -237,7 +237,8 @@
 					"main/info.html",
 					"main/tabbar.html",
 					"main/echarts.html",
-					"main/lovestory.html"
+					"main/lovestory.html",
+					"main/lovestory_base.html"
 				],
 				"priority": 0
 			},
@@ -309,6 +310,14 @@
 					"js/mui.min.js",
 					"css/picture.css",
 					"js/add_picture.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"main/lovestory_base.html": {
+				"resources": [
+					"css/mui.min.css",
+					"main/lovestory.html"
 				],
 				"refer": [],
 				"priority": 0

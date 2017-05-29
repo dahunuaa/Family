@@ -41,12 +41,13 @@
 		<script>
 			(function($,doc){
 				mui.init();
-				$.ready(function(){
+				$.plusReady(function(){
 				 var context = document.getElementById("main_text")
 				 document.getElementById("submit").addEventListener('tap',function(){
 				 	if(main_text.value==""){
 				 		plus.nativeUI.toast("怎么也得写点东西吧~")
 				 	}else{
+				 		var wt = plus.nativeUI.showWaiting("超过2秒钟算我输~")
 				 		getimgbase64();
 				 		$.ajax({
 				 			type:"post",
@@ -59,9 +60,16 @@
 				 			dataType:"json",
 				 			success:function(data){
 				 				if(data.response.success=="1"){
-				 					plus.nativeUI.toast("下次记得再来哦~~")
-				 				   mui.back()
+				 					wt.close();
+				 					plus.nativeUI.toast("下次记得再来哦~~");
+				 				  	mui.back();
+				 				  	plus.webview.getWebviewById("lovestory").reload();
+				 				}else{
+				 					plus.nativeUI.toast("有bug咯~");
 				 				}
+				 			},
+				 			error:function(){
+				 				plus.nativeUI.toast("有bug咯~");
 				 			}
 				 		})
 				 		

@@ -26,7 +26,8 @@
 			"main/info.html",
 			"main/tabbar.html",
 			"main/echarts.html",
-			"main/lovestory.html"
+			"main/lovestory.html",
+			"main/lovestory_base.html"
 		]
 	},
 	"main/pullrefresh_main.html": {
@@ -84,6 +85,15 @@
 			"js/mui.min.js",
 			"css/picture.css",
 			"js/add_picture.js"
+		]
+	},
+	"main/lovestory_base.html": {
+		"resources": [
+			"css/mui.min.css",
+			"main/lovestory.html"
+		],
+		"refer": [
+			"main/lovestory.html"
 		]
 	}
 }
