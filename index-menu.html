@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<style type="text/css">
+			body,
+			.mui-content {
+				background-color:moccasin;
+				color: #fff;
+			}
+			.mui-table-view {
+				margin-bottom: 35px;
+			}
+			.title+.content {
+				margin: 10px 15px 35px;
+				color: #bbb;
+				text-indent: 1em;
+				font-size: 14px;
+				line-height: 24px;
+			}
+			.aligncenter {
+				clear: both;
+				/*display: block;*/
+				margin:auto;
+			} 
+			.firstdiv{
+				margin-top: 0px;
+				width:280px;
+				height: 200px;
+				background: url(img/mongkey2.jpg)no-repeat;
+				background-size: 280px 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="firstdiv">
+				<img src="img/monkey.png" style="width: 50px; margin-top: 120px; margin-left: 10px;"  class="aligncenter"></img>
+			    <h3 class="title" style="margin-top: -40px;margin-left: 80px; color: white; font-family: '楷体';" >嫌毛猴</h1>
+			</div>
+			<div class="content">
+				<div style="margin-top: 50px;">
+					<div style="margin: 10px 45px;" class="mui-table-view">
+					<a id="happybirthday" type="button" class="mui-btn mui-btn-blue mui-btn-block" style="padding: 5px 10px;" href="main/lovestory.html">猴快乐</a>
+					</div>
+					<br />
+					<p style="margin: 10px 45px;" class="mui-table-view">
+						<a id="monkeyfamily" type="button" class="mui-btn mui-btn-blue mui-btn-block" style="padding: 5px 10px;"href="main/echarts.html">毛猴之窝</a>
+					</p>
+					<br />
+					<p style="margin: 10px 45px;" class="mui-table-view">
+						<a id="news" type="button" class="mui-btn mui-btn-blue mui-btn-block" style="padding: 5px 10px;"href="main/tabbar.html">猴闻天下</a>
+					</p>
+				</div>
+
+			</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			var aniShow = "slide-in-right";
+			//关于backbutton和menubutton两个按键的说明，在iOS平台不存在，故需隐藏
+			if(!mui.os.android) {
+				var span = document.getElementById("android-only")
+				if(span) {
+					span.style.display = "none";
+				}
+			}
+
+			var subWebview = null,
+				template = null,
+				index = null;
+			mui.plusReady(function() {
+				//获得主页面webview引用；
+				index = plus.webview.currentWebview().opener();
+				var _self = plus.webview.currentWebview();
+				_self.drag({
+					direction: "left",
+					moveMode: "followFinger"
+				}, {
+					view: index,
+					moveMode: "follow"
+				}, function(e) {});
+
+			})
+			mui('.mui-table-view').on('tap', 'a', function() {
+				var id = this.getAttribute("href");
+				var type = this.getAttribute("open-type");
+				var href = this.href;
+				
+				var webview_style = {
+					popGesture: "close"
+				}
+				
+				var extras = {};
+
+				var titleType = this.getAttribute("data-title-type");
+
+				if(titleType == "native") {
+
+					var webview = plus.webview.create(href, id, webview_style);
+					var view = new plus.nativeObj.View("title", {
+						top: 0,
+						height: "44px",
+						width: "100%",
+						dock: "top",
+						position: "dock"
+					});
+
+					view.drawRect("#f7f7f7"); //绘制背景色
+					view.drawRect("#cccccc", {
+						top: "43px",
+						left: "0px"
+					}); //绘制底部边线
+
+					var bitmap = new plus.nativeObj.Bitmap("back");
+					bitmap.loadBase64Data("data:image/png;base64,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");
+					view.drawBitmap(bitmap, {}, {
+						top: "10px",
+						left: "10px",
+						width: "24px",
+						height: "24px"
+					});
+					view.drawText(this.innerText.trim(), {}, {
+						size: "17px",
+						weight: "normal"
+					});
+
+					view.setTouchEventRect({
+						top: "0px",
+						left: "0px",
+						width: "44px",
+						height: "100%"
+					});
+					view.interceptTouchEvent(true);
+					view.addEventListener("click", function(e) {
+						webview.evalJS("mui.back();");
+					}, false);
+					webview.append(view);
+
+					webview.addEventListener("loaded", function() {
+						webview.show(aniShow, 300, null, extras);
+					})
+
+				} else {
+					//侧滑菜单需动态控制一下zindex值；
+					if(~id.indexOf('offcanvas-')) {
+						webview_style.zindex = 9998;
+						webview_style.popGesture = ~id.indexOf('offcanvas-with-right') ? "close" : "none";
+					}
+
+					var webview = plus.webview.create(this.href, id, webview_style, extras);
+					webview.addEventListener("loaded", function() {
+						webview.show(aniShow, 300);
+					});
+				}
+			});
+
+			mui.back=function(){
+				mui.fire(mui.currentWebview.opener(), "menu:close");
+			}
+			/**
+			 * 关闭侧滑菜单
+			 */
+			function close() {
+				mui.fire(mui.currentWebview.opener(), "menu:close");
+			}
+
+			//点击“关闭侧滑菜单”按钮处理逻辑
+//			document.getElementById("close-btn").addEventListener("tap", close);
+
+			mui.init({
+				swipeBack: false,
+				keyEventBind: {
+					backbutton: false //关闭back按键监听
+				}
+			});
+		</script>
+	</body>
+
+</html>

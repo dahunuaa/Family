@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" class="picture">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>addlovepicture</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/picture.css" />
+		<style>
+			#add_pic{
+				position: absolute;
+				margin-top: -130px;
+				margin-left: -6px;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">别看我，想写啥就写啥！</h1>
+		</header>
+		<div class="mui-content">
+			<div class="main_content">
+				<div class="mui-input-row" style="margin: 0px 0px;">
+					<textarea id="main_text" rows="10" placeholder="想些啥写啥……"></textarea>
+				</div>
+				<div id="image-list" class="row image-list">
+					<!--<img class="picture" id="addpic_1" src="../img/iconfont-tianjia.png"style="margin: 20px; height: 80px;" />-->
+				</div>
+			</div>
+			<div style="text-align: center; margin-top: 30px;">
+				<button id="submit" class="mui-btn mui-btn-primary" style="width: 100px;" type="button">走你~</button>
+			</div>			
+			
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/basepath.js" ></script>
+		<script type="text/javascript" src="../js/add_picture.js" charset="utf-8"></script>
+		<script src="../js/selectpic.js"></script>
+		<script>
+			(function($,doc){
+				mui.init();
+				$.ready(function(){
+				 var context = document.getElementById("main_text")
+				 document.getElementById("submit").addEventListener('tap',function(){
+				 	if(main_text.value==""){
+				 		plus.nativeUI.toast("怎么也得写点东西吧~")
+				 	}else{
+				 		getimgbase64();
+				 		$.ajax({
+				 			type:"post",
+				 			url:basepath+"api/v1.0/lovestory",
+				 			data:{
+				 				"text":context.value,
+				 				"image_list":JSON.stringify(images_array)
+				 			},
+				 			async:false,
+				 			dataType:"json",
+				 			success:function(data){
+				 				if(data.response.success=="1"){
+				 					plus.nativeUI.toast("下次记得再来哦~~")
+				 				   mui.back()
+				 				}
+				 			}
+				 		})
+				 		
+				 		
+				 	}
+				 	
+				 })
+				
+				
+				});
+				
+			})(mui,document);
+		</script>
+	</body>
+</html>

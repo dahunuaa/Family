@@ -1,0 +1,89 @@
+{
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/update.js"
+		],
+		"refer": [
+			"index-menu.html",
+			"main/guide.html",
+			"main/info.html",
+			"main/share.html"
+		]
+	},
+	"index-menu.html": {
+		"resources": [
+			"css/mui.min.css",
+			"img/monkey.jpg",
+			"img/monkey.png",
+			"img/mongkey2.jpg",
+			"js/mui.min.js"
+		],
+		"refer": [
+			"main/pullrefresh_main.html",
+			"main/info.html",
+			"main/tabbar.html",
+			"main/echarts.html",
+			"main/lovestory.html"
+		]
+	},
+	"main/pullrefresh_main.html": {
+		"resources": [
+			"css/mui.min.css"
+		]
+	},
+	"main/tabbar.html": {
+		"resources": [
+			"css/app.css",
+			"css/mui.min.css"
+		]
+	},
+	"main/echarts.html": {
+		"resources": [
+			"css/mui.min.css"
+		]
+	},
+	"main/info.html": {
+		"resources": [
+			"css/mui.min.css"
+		]
+	},
+	"main/guide.html": {
+		"resources": [
+			"css/mui.min.css"
+		]
+	},
+	"main/share.html": {
+		"resources": [
+			"css/mui.min.css"
+		]
+	},
+	"main/lovestory.html": {
+		"resources": [
+			"css/app.css",
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/basepath.js",
+			"js/app.js"
+		],
+		"refer": [
+			"main/addlovestory.html"
+		]
+	},
+	"main/addlovestory.html": {
+		"resources": [
+			"css/mui.min.css",
+			"js/selectpic.js",
+			"img/iconfont-tianjia.png",
+			"js/basepath.js",
+			"css/feedback.css",
+			"js/add_image.js",
+			"css/story.css",
+			"js/mui.min.js",
+			"css/picture.css",
+			"js/add_picture.js"
+		]
+	}
+}
