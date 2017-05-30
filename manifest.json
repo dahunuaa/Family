@@ -214,7 +214,11 @@
 					"js/mui.min.js",
 					"fonts/mui.ttf",
 					"css/mui.min.css",
-					"js/update.js"
+					"js/update.js",
+					"js/index.js",
+					"img/mongkey2.jpg",
+					"js/basepath.js",
+					"img/monkey.png"
 				],
 				"refer": [
 					"index-menu.html",
@@ -317,7 +321,8 @@
 			"main/lovestory_base.html": {
 				"resources": [
 					"css/mui.min.css",
-					"main/lovestory.html"
+					"main/lovestory.html",
+					"js/mui.min.js"
 				],
 				"refer": [],
 				"priority": 0
