@@ -17,6 +17,18 @@
 				width: 100%;
 				height: 100%;
 			}
+			.loading{
+				-webkit-animation: twinkling 2s infinite ease-in-out;
+			}
+			@-webkit-keyframes twinkling{
+			  0% {
+			      opacity: 0; 
+			  }
+			  100% {
+			      opacity: 1; 
+			  }
+			}
+			
 		</style>
 	</head>
 
@@ -24,7 +36,29 @@
 		<div class="mui-content">
 			<div class="mui-card">
 				<div class="mui-card-header mui-card-media">
-					<img src="img/monkey.png" style="margin-top: -5px;"/>
+					<img src="img/weather.jpg" style="margin-top: -5px;"/>
+					<div class="mui-media-body" style="margin-top:5px ;">
+						宣化天气
+					</div>
+				</div>
+				<div class="mui-card-content" >
+					<ul class="mui-table-view" id="weather" >
+							<p style="text-align: center;margin-top: 10px; " class="loading" id="weather_loading" >客官莫急~~</p>
+					</ul>
+				</div>
+				<div class="mui-card-footer">
+					<div class="mui-table-view-cell mui-collapse" style="width: 100%;" id="zjk"><a class="mui-navigate-right" id="zhangjiakou">张家口天气</a>
+						<ul class="mui-table-view mui-table-view-chevron" id="zjk_weather" >
+							<li class="mui-table-view-cell">
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="mui-card" id="jinriyaowen">
+				<div class="mui-card-header mui-card-media">
+					<img src="img/today_news.jpg" style="margin-top: -5px;"/>
 					<div class="mui-media-body" style="margin-top:5px ;">
 						今日要闻
 					</div>
@@ -32,20 +66,8 @@
 				<div class="mui-card-content" >
 					<div id="slider" class="mui-slider">
 						<div class="mui-slider-group" id="banner">
-							
+							<p style="text-align: center;margin-top: 10px; " class="loading" id="cctv_loading" >玩命加载中~~</p>
 							<!--<div class="mui-slider-item">
-								<a href="#">
-									<img src="img/mongkey2.jpg">
-									<p class="mui-slider-title">幸福就是可以一起睡觉</p>
-								</a>
-							</div>
-							<div class="mui-slider-item">
-								<a href="#">
-									<img src="img/mongkey2.jpg">
-									<p class="mui-slider-title">幸福就是可以一起睡觉</p>
-								</a>
-							</div>
-							<div class="mui-slider-item">
 								<a href="#">
 									<img src="img/mongkey2.jpg">
 									<p class="mui-slider-title">幸福就是可以一起睡觉</p>
@@ -53,19 +75,95 @@
 							</div>-->
 						</div>
 						<div class="mui-slider-indicator mui-text-right" id="slider_indicator">
-							<!--<div class="mui-indicator"></div>
-							<div class="mui-indicator"></div>
-							<div class="mui-indicator"></div>-->
+							<!--<div class="mui-indicator"></div>-->
 						</div>
-			</div>
+					</div>
 				</div>
 				<div class="mui-card-footer">
-					<a class="mui-card-link">Like</a>
-					<a class="mui-card-link">Comment</a>
-					<a class="mui-card-link">Read more</a>
+					<p  id="1" style="display:none">学习知识要善于思考，思考，再思考。——爱因斯坦</p>
+					<p  id="2" style="display:none">学习本无底，前进莫徬徨。——小姚</p>
+					<p  id="3" style="display:none">好好学习，天天向上。——毛泽东</p>
+					<p  id="4" style="display:none">理想是人生的太阳。——德莱赛</p>
+					<p  id="5" style="display:none">谁不会休息，谁就不会工作。——列宁</p>
+					<p  id="6" style="display:none">有所作为是生活的最高境界。——恩格斯</p>
+					<p  id="0" style="display:none">爱情无需言作媒，全在心领神会。——哈佛格尔</p>
 				</div>
 			</div>
-			
+			<br />
+			<div class="mui-card" id="shiliaoyangsheng">
+				<div class="mui-card-header mui-card-media">
+					<img src="img/shiliaoyangsheng.jpg" style="margin-top: -5px;"/>
+					<div class="mui-media-body" style="margin-top:5px ;">
+						食疗养生
+					</div>
+				</div>
+				<div class="mui-card-content" >
+					<div class="mui-card" >
+						<ul class="mui-table-view" id="food">
+							<p style="text-align: center;margin-top: 10px; " class="loading" id="food_loading" >看着我~~</p>
+						</ul>
+					</div>
+				</div>
+				<div class="mui-card-footer">
+					<p  id="11" style="display:none">凡有喜嗜之物，不可纵口，当念病从口入，惕然自省。——《养生四要》</p>
+					<p  id="21" style="display:none">人生如天地，和煦则春，惨郁则秋。——《医述》</p>
+					<p  id="31" style="display:none">热水泡脚，舒血通窍。春日浴足，外阳固脱；夏日浴足，暑温可却：秋日浴足，肺润肠濡；冬日浴足，丹田温热。</p>
+					<p  id="41" style="display:none">恼一恼，老一老；笑一笑，少一少。——《养心要语》</p>
+					<p  id="51" style="display:none">运动能代替药物，药物不能代替运动。运动血脉畅通，增强器官功能，生理功能平衡，防治一切疾玻</p>
+					<p  id="61" style="display:none">暴喜伤心，暴怒伤肝，暴恐伤肾，过衰伤肺，过思伤脾。——《养生四要》</p>
+					<p  id="01" style="display:none">晚饭少吃口，活到九十九。——《养生要集》</p>
+				</div>
+			</div>
+			<br />
+			<div class="mui-card" id="jianfeishoushen">
+				<div class="mui-card-header mui-card-media">
+					<img src="img/jianfeishoushen.jpg" style="margin-top: -5px;"/>
+					<div class="mui-media-body" style="margin-top:5px ;">
+						减肥瘦身
+					</div>
+				</div>
+				<div class="mui-card-content" >
+					<div class="mui-card" >
+						<ul class="mui-table-view" id="jianfei">
+							<p style="text-align: center;margin-top: 10px; " class="loading" id="jianfei_loading" >别眨眼~~</p>
+						</ul>
+					</div>
+				</div>
+				<div class="mui-card-footer">
+					<p  id="12" style="display:none">饭后百步走，活到九十九。</p>
+					<p  id="22" style="display:none">人怕不动，脑怕不用。</p>
+					<p  id="32" style="display:none">练出一身汗，小病不用看。</p>
+					<p  id="42" style="display:none">久视伤神，久立伤胃，久坐伤血，久卧伤气。</p>
+					<p  id="52" style="display:none">墙靠基础坚，身强靠锻炼。</p>
+					<p  id="62" style="display:none">每日频行，必身轻目明，筋节血脉调畅，饮食易消,无所壅滞。</p>
+					<p  id="02" style="display:none">不靠医，不靠药，天天劳动最见效。</p>
+				</div>
+			</div>
+			<br />
+			<div class="mui-card" id="chufangbaike">
+				<div class="mui-card-header mui-card-media">
+					<img src="img/chufang.jpg" style="margin-top: -5px;"/>
+					<div class="mui-media-body" style="margin-top:5px ;">
+						厨房百科
+					</div>
+				</div>
+				<div class="mui-card-content" >
+					<div class="mui-card" >
+						<ul class="mui-table-view" id="chufang"  >
+							<p style="text-align: center;margin-top: 10px; " class="loading" id="chufang_loading" >好吃的马上来~~</p>
+						</ul>
+					</div>
+				</div>
+				<div class="mui-card-footer">
+					<p  id="13" style="display:none">健康人生，从“齿”开始。</p>
+					<p  id="23" style="display:none">车贵，房贵，不如健康贵!业重，钱重，不如生命重。</p>
+					<p  id="33" style="display:none">节饮食以养胃，多读书以养胆。</p>
+					<p  id="43" style="display:none">热食伤骨，冷食伤肺。</p>
+					<p  id="53" style="display:none">好菜不过饱，美食不过量，节饮食,动为纲，心境阔，吃杂粮，勤用脑，寿命长!</p>
+					<p  id="63" style="display:none">饥不暴食，渴不狂饮，暴食伤胃，狂饮伤身，饮食有节，肚子舒贴!</p>
+					<p  id="03" style="display:none">果蔬是个宝，赛过灵芝草，每餐一只果，老汉赛小伙;一天一个果，医生不找我，一天三个枣，年轻不显老!</p>
+				</div>
+			</div>
 			
 		</div>
 		<script src="js/mui.min.js"></script>
@@ -77,6 +175,74 @@
 				statusBarBackground: '#f7f7f7'
 			});
 			mui.plusReady(function(){
+				
+				//天气加载
+				var weather_list = document.getElementById("weather")
+				mui.ajax({
+					type:"get",
+					url:basepath+"api/v1.0/scapy/weather",
+					async:true,
+					dataType:"json",
+					success:function(data){
+						document.getElementById("weather_loading").style.display="none"
+						xuanhua_weather = data.response.data[0]
+						zhangjiakou_weather = data.response.data[1]
+						mui.each(xuanhua_weather,function(key,value){
+							var li = document.createElement("li")
+							li.className="mui-table-view-cell"
+							
+							var a = document.createElement("a")
+//							a.className ="mui-navigate-right"
+							a.style="background-color: cornflowerblue;"
+							if(value[2].length!=2){
+								a.innerHTML=value[0]+"&nbsp;&nbsp;"+value[1]+"&nbsp;&nbsp;&nbsp;"+value[2]+"&nbsp;&nbsp;&nbsp;"+value[3]
+							}else{
+								a.innerHTML=value[0]+"&nbsp;&nbsp;"+value[1]+"&nbsp;&nbsp;&nbsp;"+value[2][0]+"/"+value[2][1]+"&nbsp;&nbsp;&nbsp;"+value[3]
+							}
+							
+							
+							li.appendChild(a)
+							weather_list.appendChild(li)
+						})
+						
+					}
+				})
+				
+				
+				document.getElementById("zhangjiakou").addEventListener('tap',function(){
+					var  zjk_weather = document.getElementById("zjk_weather")
+					zjk_weather.innerHTML=""
+					mui.ajax({
+						type:"get",
+						url:basepath+"api/v1.0/scapy/weather",
+						async:true,
+						dataType:"json",
+						success:function(data){
+							zhangjiakou_weather = data.response.data[1]
+							mui.each(zhangjiakou_weather,function(key,value){
+								var li = document.createElement("li")
+								li.className="mui-table-view-cell"
+								
+								var a = document.createElement("a")
+	//							a.className ="mui-navigate-right"
+								a.style="background-color: lightgoldenrodyellow;"
+								if(value[2].length!=2){
+									a.innerHTML=value[0]+"&nbsp;&nbsp;"+value[1]+"&nbsp;&nbsp;&nbsp;"+value[2]+"&nbsp;&nbsp;&nbsp;"+value[3]
+								}else{
+									a.innerHTML=value[0]+"&nbsp;&nbsp;"+value[1]+"&nbsp;&nbsp;&nbsp;"+value[2][0]+"/"+value[2][1]+"&nbsp;&nbsp;&nbsp;"+value[3]
+								}
+								
+								
+								li.appendChild(a)
+								zjk_weather.appendChild(li)
+							})
+							
+						}
+				})
+				})
+				
+				
+				//今日要闻加载
 				var banner_list = document.getElementById("banner")
 				var slider_indicator = document.getElementById("slider_indicator")
 				mui.ajax({
@@ -85,6 +251,7 @@
 					async:true,
 					dataType:"json",
 					success:function(data){
+						document.getElementById("cctv_loading").style.display="none"
 						var length = data.response.data.length
 						mui.each(data.response.data,function(key,value){
 							
@@ -92,7 +259,9 @@
 							div11.className="mui-slider-item"
 							
 							var a = document.createElement("a")
-							a.href = value[2]
+							a.setAttribute("img_href",value[2])
+//							a.href = value[2]
+							
 							
 							var img= document.createElement("img")
 							img.src=value[1][0]
@@ -113,12 +282,157 @@
 							banner_list.appendChild(div11)
 							
 						})
+						mui("#banner").on('tap','a',function(){
+							var new_href = this.getAttribute("img_href")
+							
+							mui.openWindow({
+								url:"main/detail_news.html",
+								id:"detail_news",
+								
+								extras:{
+									news_href:new_href
+								}
+							})
+						})
+						
+						
 						mui('.mui-slider').slider().gotoItem(0,0)
 					}
 				})
+				var d = new Date();
+				document.getElementById(String(d.getDay())).style.display ="block"
+				document.getElementById(String(d.getDay())+"1").style.display ="block"
+				document.getElementById(String(d.getDay())+"2").style.display ="block"
+				document.getElementById(String(d.getDay())+"3").style.display ="block"
+				
+				//食疗养生加载
+				var food_list = document.getElementById("food")
+				mui.ajax({
+					type:"get",
+					url:basepath+"api/v1.0/scapy/yangsheng_news",
+					async:true,
+					dataType:"json",
+					success:function(data){
+						document.getElementById("food_loading").style.display="none"
+						mui.each(data.response.data,function(key,value){
+							var li = document.createElement("li")
+							li.className="mui-table-view-cell"
+							li.setAttribute("href",value[2])
+							li.setAttribute("time",value[1])
+							li.setAttribute("title",value[0])
+							
+							var a = document.createElement("a")
+							a.className ="mui-navigate-right"
+							a.style="background-color: lightgreen;"
+							a.innerHTML=value[0]
+							
+							li.appendChild(a)
+							food_list.appendChild(li)
+						})
+						mui("#food").on('tap','li',function(e){
+							var food_href = this.getAttribute("href")
+							var food_title = this.getAttribute("title")
+							var food_time = this.getAttribute("time")
+							
+							mui.openWindow({
+								url:"main/detail_news1.html",
+								id:"detail_news",
+								
+								extras:{
+									news_href:food_href,
+									news_title:food_title,
+									news_time:food_time,
+								}
+							})
+						})
+					}
+				})
+				//减肥瘦身加载
+				var jianfei_list = document.getElementById("jianfei")
+				mui.ajax({
+					type:"get",
+					url:basepath+"api/v1.0/scapy/jianfei_news",
+					async:true,
+					dataType:"json",
+					success:function(data){
+						document.getElementById("jianfei_loading").style.display="none"
+						mui.each(data.response.data,function(key,value){
+							var li = document.createElement("li")
+							li.className="mui-table-view-cell"
+							li.setAttribute("href",value[2])
+							li.setAttribute("time",value[1])
+							li.setAttribute("title",value[0])
+							
+							var a = document.createElement("a")
+							a.className ="mui-navigate-right"
+							a.style="background-color: lightseagreen;"
+							a.innerHTML=value[0]
+							
+							li.appendChild(a)
+							jianfei_list.appendChild(li)
+						})
+						mui("#jianfei").on('tap','li',function(e){
+							var jianfei_href = this.getAttribute("href")
+							var jianfei_title = this.getAttribute("title")
+							var jianfei_time = this.getAttribute("time")
+							mui.openWindow({
+								url:"main/detail_news1.html",
+								id:"detail_news",
+								
+								extras:{
+									news_href:jianfei_href,
+									news_title:jianfei_title,
+									news_time:jianfei_time,
+								}
+							})
+						})
+					}
+				})
+				//厨房百科加载
+				var chufang_list = document.getElementById("chufang")
+				mui.ajax({
+					type:"get",
+					url:basepath+"api/v1.0/scapy/chufang_news",
+					async:true,
+					dataType:"json",
+					success:function(data){
+						document.getElementById("chufang_loading").style.display="none"
+						mui.each(data.response.data,function(key,value){
+							var li = document.createElement("li")
+							li.className="mui-table-view-cell"
+							li.setAttribute("href",value[2])
+							li.setAttribute("time",value[1])
+							li.setAttribute("title",value[0])
+							
+							var a = document.createElement("a")
+							a.className ="mui-navigate-right"
+							a.style="background-color: goldenrod;"
+							a.innerHTML=value[0]
+							
+							li.appendChild(a)
+							chufang_list.appendChild(li)
+						})
+						mui("#chufang").on('tap','li',function(e){
+							var chufang_href = this.getAttribute("href")
+							var chufang_title = this.getAttribute("title")
+							var chufang_time = this.getAttribute("time")
+							
+							mui.openWindow({
+								url:"main/detail_news1.html",
+								id:"detail_news",
+								
+								extras:{
+									news_href:chufang_href,
+									news_title:chufang_title,
+									news_time:chufang_time,
+								}
+							})
+						})
+					}
+				})
+				
 			})
 			
 		</script>
 	</body>
-
 </html>

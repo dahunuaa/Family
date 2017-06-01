@@ -41,6 +41,23 @@
 			.qrcode img {
 				margin: 0 auto;
 			}
+			#birthday{
+				-webkit-animation: twinkling 3s infinite ease-in-out;
+			}
+			@-webkit-keyframes twinkling{
+			  0% {
+			      opacity: 0; 
+			  }
+			  20% {
+			      opacity: 0.3; 
+			  }
+			  50% {
+			      opacity: 0.5; 
+			  }
+			  100% {
+			      opacity: 1; 
+			  }
+			}
 			
 		</style>
 	</head>
@@ -48,71 +65,27 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">关于</h1>
+			<h1 class="mui-title">有乐同享</h1>
 		</header>
 		<div class="mui-content">
 			<div class="mui-content-padded">
 				<div class="qrcode">
-					<img id="qrcode" src="../images/qrcode.png" width="100%" />
-					<a id="shortcut" style="width: 60%;margin: 15px auto;padding: 5px;" class="mui-hidden mui-btn mui-btn-block mui-btn-red">创建桌面图标</a>
+					<!--<img id="qrcode" src="../img/chufang.jpg" width="100%" />-->
 				</div>
 				<!--<h4 style="margin-top:10px;">mui</h4>-->
-				<p>mui是一款小巧高能的前端UI框架，其UI控件富有原生UI样式；
-					通过封装多webview、启动原生动画，使得mui成为目前最接近原生体验的前端框架，
-					更多详细介绍，请到<a href="http://dev.dcloud.net.cn/mui">mui官网</a>查看</p>
-				<p style="text-align: center;color: #ccc;text-indent: 0;">当前版本：<span id="version">3.6.0</span></p>	
+				<h1 style="text-align: center;color: red;" id="birthday">生日快乐</h1>
+				<p>这是一款专属于你的app，希望你能记录生活的点滴，每当回忆起来，想必是幸福的！ 	>>d(˙_˙)b<<</p>
+				<p>首页的消息都是实时更新的，你可以在这里查看宣化和张家口的天气，你可以在这里看到国内外每天的大事，你还可以在这里学习到各种养生、瘦身、以及做美食的方法。每个卡片下方是生活的道理，有一些想必是有用的~\(^o^)/</p>
+				<p>猴快乐中以卡片的形式积累着我们的一些事情，希望一直记下去~(*^‧^*)</p>
+				<p>毛猴之窝里希望你能填满嫌毛猴的故事~( # ^.^ # )</p>
+				<p>如果你正畅游在这个app里面，突然需要联系爸爸、妈妈、大虎，没关系，打开便捷通讯，一键即达~(☆＿☆)</p>
+				<p>当然，好东西哪能自己独享，只需扫描上方的二维码即可完成下载安装，鄙人不才，目前苹果用户暂时享用不到了 o(╯□╰)o</p>
+				<p style="text-align: center;color: #ccc;text-indent: 0;">当前版本：<span id="version">1.0</span></p>	
 			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript" charset="utf-8">
-			mui.init({
-				gestureConfig: {
-					longtap: true
-				},
-				swipeBack: true //启用右滑关闭功能
-			});
-			//处理点击事件，需要打开原生浏览器
-			mui('body').on('tap', 'a', function(e) {
-				var href = this.getAttribute('href');
-				if (href) {
-					if (window.plus) {
-						plus.runtime.openURL(href);
-					} else {
-						location.href = href;
-					}
-				}
-			});
-
-			var qrcodeEl = document.getElementById("qrcode");
-			qrcodeEl.addEventListener('longtap', function() {
-				plus.nativeUI.actionSheet({
-					cancel: '取消',
-					buttons: [{
-						title: '保存到相册'
-					}]
-				}, function(e) {
-					var index = e.index;
-					if (e.index === 1) {
-						plus.gallery.save(qrcodeEl.src, function() {
-							mui.toast('保存成功');
-						}, function() {
-							mui.toast('保存失败，请重试！');
-						});
-					}
-				});
-			});
-			if (mui.os.android&&mui.os.stream) { //创建快捷方式
-				var shortcutElem = document.getElementById("shortcut");
-				shortcutElem.classList.remove('mui-hidden');
-				shortcutElem.addEventListener('tap', function() {
-					plus.navigator.createShortcut({
-						name: "hello-mui",
-						icon: "images/logo.png"
-					});
-				});
-			}
-
-
+			
 		</script>
 	</body>
 

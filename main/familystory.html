@@ -1,9 +1,219 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<meta charset="UTF-8">
-		<title></title>
+		<meta charset="utf-8">
+		<title>familystory</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<style>
+			.mui-icon-plusempty{
+				font-size: 70px;
+				color:#FF0000 ;
+				position: fixed;
+				bottom: 30px;
+				left:20px
+			}
+		</style>
 	</head>
+
 	<body>
+		<!--<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">屌丝与女神的故事</h1>
+		</header>-->
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh">
+			<div class="mui-scroll" id="list">
+				
+		</div>
+			
+			
+			<span class="mui-icon mui-icon-plusempty" id="add_family_story"></span>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/app.js" ></script>
+		<script type="text/javascript" src="../js/basepath.js" ></script>
+		<script>
+			//后端获取数据，按照时间倒序，完成卡片式排列
+			(function($,doc){
+				mui.init({
+					pullRefresh: {
+					container: '#pullrefresh',
+					down:{
+						callback:pulldownRefresh
+					},
+					up: {
+						contentrefresh: '这就来了...',
+						callback: pullupRefresh
+					}
+				}
+				});
+				$.init({
+					gestureConfig:{
+					   tap: true, //默认为true
+					   longtap: true, //默认为false
+					  }
+				})
+				$.plusReady(function(){
+					doc.getElementById("add_family_story").addEventListener('tap',function(){
+						mui.openWindow({
+							url:'addfamilystory.html',
+							id:'addfamilystory',
+						})
+					})
+				});
+				
+				var list = document.getElementById("list");
+					var count=-1;
+					function pullupRefresh(){
+						count = count+1;
+						setTimeout(function(){
+							$.ajax({
+								type:"get",
+								url:basepath+"api/v1.0/familystory"+"?page_size=5&page="+(count+1),
+								async:true,
+								dataType:"json",
+								success:function(data){
+									
+									$('#pullrefresh').pullRefresh().endPullupToRefresh((data.response.data==""||null));
+									mui.each(data.response.data,function(key,value){
+										//整体
+										var div = document.createElement("div")
+										div.className="mui-card"
+										
+										//眉头										
+										var div1 = document.createElement("div")
+										div1.className="mui-card-header mui-card-media"
+										//正文
+										var div2 = document.createElement("div")
+										div2.className="mui-card-content"
+										//正文下面的滑动区域
+										var div3 = document.createElement("div")
+										div3.className="mui-slider"
+										
+										var div31 = document.createElement("div")
+										div31.className="mui-slider-group"
+										
+										var div32 = document.createElement("div")
+										div32.className="mui-slider-indicator mui-text-right"
+										//页脚文字
+										var div4 = document.createElement("div")
+										div4.className="mui-card-content-inner"
+										
+										var img = document.createElement("img")
+										img.src="../img/monkey.png"
+										img.style="margin-top: -5px;"
+										img.setAttribute("_id",value._id)
+										
+										//眉头文字部分
+										var div5 = document.createElement("div")
+										div5.className="mui-media-body"
+										div5.style="margin-top: 5px;"
+										var span1 = document.createElement("span")
+										span1.innerHTML="毛猴之窝&nbsp;&nbsp;"
+										var span2 = document.createElement("span")
+										span2.innerHTML=value.add_time
+										
+										//添加眉头
+										div5.appendChild(span1)
+										div5.appendChild(span2)
+										div1.appendChild(img)
+										div1.appendChild(div5)
+										div.appendChild(div1)
+										
+										//添加图片
+										for(var i=0;i<value.images.length;i++){
+											 var s_img= document.createElement("img")
+											 s_img.src=value.images[i]
+											 
+											 var div311 = document.createElement("div")
+											 div311.className="mui-slider-item"
+											 
+											 var div321 = document.createElement("div")
+											 div321.className="mui-indicator"
+											 
+											 div311.appendChild(s_img)
+											 div31.appendChild(div311)
+											 div32.appendChild(div321)
+										}
+
+										div3.appendChild(div31)
+										div3.appendChild(div32)
+										div2.appendChild(div3)
+										div.appendChild(div2)
+										
+										//添加页脚
+										var p = document.createElement("p")
+										p.style="color: #333"
+										p.innerHTML=value.text
+										div4.appendChild(p)
+										div.appendChild(div4)
+										
+										list.appendChild(div)
+										
+										//加载完图片之后需要设置一下轮播
+										mui('.mui-slider').slider().gotoItem(0,0)
+										
+									})
+									mui("#list").on('longtap','img',function(){
+										var _id = this.getAttribute("_id")
+										var btnArray =["No","YES"]
+										mui.confirm("你真的要抛弃我？",'',btnArray,function(e){
+											if(e.index==1){
+												mui.ajax({
+													type:"delete",
+													url:basepath+"api/v1.0/familystory/"+_id,
+													async:true,
+													data:{},
+													dataType:"json",
+													success:function(data){
+														if(data.response.success=="1"){
+															plus.nativeUI.toast("我注定是你生命中的过客~")
+															plus.webview.currentWebview().reload()
+														}else{
+															plus.nativeUI.toast("bug出现~")
+														}
+													}
+												})
+											}else{
+												plus.nativeUI.toast("爱你么么哒~")
+											}
+										})
+									})
+								}
+							});
+							
+						},100)
+					}
+			
+				/*
+			 下拉刷新(以从新加载本页的方法来实现)
+			 * */
+			function pulldownRefresh(){
+				   mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+	               plus.webview.currentWebview().reload();
+				}
+				
+				
+				if (mui.os.plus) {
+					mui.plusReady(function() {
+						setTimeout(function() {
+							mui('#pullrefresh').pullRefresh().pullupLoading();
+						}, 100);
+	
+					});
+				} else {
+					mui.ready(function() {
+						mui('#pullrefresh').pullRefresh().pullupLoading();
+					});
+				}
+			})(mui,document);
+			
+		</script>
 	</body>
+
 </html>

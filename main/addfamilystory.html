@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>addlovepicture</title>
+		<title>addfamilypicture</title>
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/picture.css" />
 		<style>
@@ -50,7 +50,7 @@
 				 		getimgbase64();
 				 		$.ajax({
 				 			type:"post",
-				 			url:basepath+"api/v1.0/lovestory",
+				 			url:basepath+"api/v1.0/familystory",
 				 			data:{
 				 				"text":context.value,
 				 				"image_list":JSON.stringify(images_array)
@@ -62,7 +62,7 @@
 				 					wt.close();
 				 					plus.nativeUI.toast("下次记得再来哦~~");
 				 				  	mui.back();
-				 				  	plus.webview.getWebviewById("lovestory").reload();
+				 				  	plus.webview.getWebviewById("familystory").reload();
 				 				}else{
 				 					plus.nativeUI.toast("有bug咯~");
 				 				}

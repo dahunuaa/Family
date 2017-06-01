@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" class="picture">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style>
+			#news{
+				min-height: 800px;
+			}
+			img{
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">详细内容</h1>
+		</header>
+		
+		<div class="mui-content" >
+			<h3 id="title" style="text-align: center;color:darkorange"></h3>
+			<h6 id="time" style="text-align: right;"></h6>
+			<div id="content_detail"></div>
+					
+			
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/basepath.js" ></script>
+		<script>
+			(function($,doc){
+				mui.init();
+				$.plusReady(function(){
+					
+				 	var self = plus.webview.currentWebview()
+				 	document.getElementById("title").innerHTML=self.news_title
+				 	document.getElementById("time").innerHTML=self.news_time
+				 	var img_href = self.news_href
+				 	
+				 	
+				 	mui.ajax({
+				 		type:"get",
+				 		url:basepath+"api/v1.0/scapy/detail_news",
+				 		data:{
+				 			url:img_href
+				 		},
+				 		async:true,
+				 		dataType:"json",
+				 		success:function(data){
+				 			final_data =data.response.data
+				 			var data_str =""
+				 			for(var i =0;i<final_data.length;i++){
+				 				data_str = data_str+final_data[i]
+				 			}
+				 			document.getElementById("content_detail").innerHTML = data_str
+				 		}
+				 	})
+				});
+				
+				
+			})(mui,document);
+		</script>
+	</body>
+</html>

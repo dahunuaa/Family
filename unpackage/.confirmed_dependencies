@@ -1,104 +1,172 @@
 {
-	"index.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/update.js",
-			"js/index.js",
-			"img/mongkey2.jpg",
-			"js/basepath.js",
-			"img/monkey.png"
-		],
-		"refer": [
-			"index-menu.html",
-			"main/guide.html",
-			"main/info.html",
-			"main/share.html"
-		]
-	},
-	"index-menu.html": {
-		"resources": [
-			"css/mui.min.css",
-			"img/monkey.jpg",
-			"img/monkey.png",
-			"img/mongkey2.jpg",
-			"js/mui.min.js"
-		],
-		"refer": [
-			"main/pullrefresh_main.html",
-			"main/info.html",
-			"main/tabbar.html",
-			"main/echarts.html",
-			"main/lovestory.html",
-			"main/lovestory_base.html"
-		]
-	},
-	"main/pullrefresh_main.html": {
-		"resources": [
-			"css/mui.min.css"
-		]
-	},
-	"main/tabbar.html": {
-		"resources": [
-			"css/app.css",
-			"css/mui.min.css"
-		]
-	},
-	"main/echarts.html": {
-		"resources": [
-			"css/mui.min.css"
-		]
-	},
-	"main/info.html": {
-		"resources": [
-			"css/mui.min.css"
-		]
-	},
-	"main/guide.html": {
-		"resources": [
-			"css/mui.min.css"
-		]
-	},
-	"main/share.html": {
-		"resources": [
-			"css/mui.min.css"
-		]
-	},
-	"main/lovestory.html": {
-		"resources": [
-			"css/app.css",
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"js/basepath.js",
-			"js/app.js"
-		],
-		"refer": [
-			"main/addlovestory.html"
-		]
-	},
-	"main/addlovestory.html": {
-		"resources": [
-			"css/mui.min.css",
-			"js/selectpic.js",
-			"img/iconfont-tianjia.png",
-			"js/basepath.js",
-			"css/feedback.css",
-			"js/add_image.js",
-			"css/story.css",
-			"js/mui.min.js",
-			"css/picture.css",
-			"js/add_picture.js"
-		]
-	},
-	"main/lovestory_base.html": {
-		"resources": [
-			"css/mui.min.css",
-			"main/lovestory.html",
-			"js/mui.min.js"
-		],
-		"refer": [
-			"main/lovestory.html"
-		]
-	}
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/update.js",
+      "js/index.js",
+      "img/mongkey2.jpg",
+      "js/basepath.js",
+      "img/monkey.png",
+      "img/today_news.jpg",
+      "img/shiliaoyangsheng.jpg",
+      "img/jianfeishoushen.jpg",
+      "img/chufang.jpg",
+      "img/weather.jpg"
+    ],
+    "refer": [
+      "index-menu.html",
+      "main/guide.html",
+      "main/info.html",
+      "main/share.html",
+      "main/detail_news.html",
+      "main/detail_news1.html"
+    ]
+  },
+  "index-menu.html": {
+    "resources": [
+      "css/mui.min.css",
+      "img/monkey.jpg",
+      "img/monkey.png",
+      "img/mongkey2.jpg",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "main/pullrefresh_main.html",
+      "main/info.html",
+      "main/tabbar.html",
+      "main/echarts.html",
+      "main/lovestory.html",
+      "main/lovestory_base.html",
+      "main/familystory_base.html",
+      "main/quickconnect.html"
+    ]
+  },
+  "main/pullrefresh_main.html": {
+    "resources": [
+      "css/mui.min.css"
+    ]
+  },
+  "main/tabbar.html": {
+    "resources": [
+      "css/app.css",
+      "css/mui.min.css"
+    ]
+  },
+  "main/echarts.html": {
+    "resources": [
+      "css/mui.min.css"
+    ]
+  },
+  "main/info.html": {
+    "resources": [
+      "css/mui.min.css"
+    ]
+  },
+  "main/guide.html": {
+    "resources": [
+      "css/mui.min.css"
+    ]
+  },
+  "main/share.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js"
+    ]
+  },
+  "main/lovestory.html": {
+    "resources": [
+      "css/app.css",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "js/basepath.js",
+      "js/app.js"
+    ],
+    "refer": [
+      "main/addlovestory.html"
+    ]
+  },
+  "main/addlovestory.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/selectpic.js",
+      "img/iconfont-tianjia.png",
+      "js/basepath.js",
+      "css/feedback.css",
+      "js/add_image.js",
+      "css/story.css",
+      "js/mui.min.js",
+      "css/picture.css",
+      "js/add_picture.js"
+    ]
+  },
+  "main/lovestory_base.html": {
+    "resources": [
+      "css/mui.min.css",
+      "main/lovestory.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "main/lovestory.html"
+    ]
+  },
+  "main/detail_news.html": {
+    "resources": [
+      "js/basepath.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/add_picture.js",
+      "css/picture.css"
+    ]
+  },
+  "main/detail_news1.html": {
+    "resources": [
+      "js/basepath.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ]
+  },
+  "main/familystory_base.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "main/familystory.html"
+    ],
+    "refer": [
+      "main/familystory.html"
+    ]
+  },
+  "main/familystory.html": {
+    "resources": [
+      "js/basepath.js",
+      "js/app.js",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "main/addfamilystory.html"
+    ]
+  },
+  "main/addfamilystory.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/add_picture.js",
+      "css/picture.css"
+    ]
+  },
+  "main/quickconnect.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "img/message.jpg",
+      "img/call.jpg",
+      "img/lv.jpg",
+      "img/baba.jpg",
+      "img/mama.jpg"
+    ]
+  }
 }

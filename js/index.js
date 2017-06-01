@@ -144,17 +144,17 @@ mui.plusReady(function() {
 	}, false);
 
 	//启用侧滑拖拽操作，延时的原因是menu页是延时创建的，所以这里需要相应延时
-	setTimeout(function() {
-		_self.drag({
-			direction: "right",
-			moveMode: "followFinger"
-		}, {
-			view: menu,
-			moveMode: "follow"
-		}, function(e) {
-			//console.log(JSON.stringify(e));
-		});
-	}, 350);
+//	setTimeout(function() {
+//		_self.drag({
+//			direction: "right",
+//			moveMode: "followFinger"
+//		}, {
+//			view: menu,
+//			moveMode: "follow"
+//		}, function(e) {
+//			//console.log(JSON.stringify(e));
+//		});
+//	}, 350);
 	
 });
 
@@ -204,7 +204,7 @@ function closeMenu() {
 			'action': 'show'
 		},
 		function(e) {
-			console.log(JSON.stringify(e));
+//			console.log(JSON.stringify(e));
 			if(e.id == _self.id) {}
 		}.bind(this)
 	)
